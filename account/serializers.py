@@ -28,8 +28,20 @@ class ProductSerializer(serializers.ModelSerializer):
         model = Product
         fields = "__all__"
 
+class ProductGetSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ("id", "name", "price")
+
 
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = "__all__"
+        extra_kwargs = {'user': {'read_only': True}}
+
+
+class OrderGetSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = ("id", "user", "product", "created_at")

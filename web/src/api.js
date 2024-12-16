@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://3.25.100.75:8000/api/v1';
+const API_URL = 'http://127.0.0.1:8000/api/v1';
 
 export const signUp = (email, password) => {
   return axios.post(`${API_URL}/signup/`, { email, password });

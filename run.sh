@@ -58,12 +58,6 @@ server {
     listen 80;
     server_name 3.25.100.75;  # EC2 퍼블릭 IP 또는 도메인 이름
 
-    # React 앱의 정적 파일 서빙
-    location / {
-        root /home/ec2-user/SuppilerServer/web/build;  # React 빌드된 파일 위치
-        try_files $uri /index.html;
-    }
-
     # Django API 요청을 Gunicorn으로 전달
     location /api/ {
         proxy_pass http://127.0.0.1:8000;  # Gunicorn 서버의 주소
